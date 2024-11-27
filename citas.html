@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar Cita - Evelyn Beauty Lounge</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="header-top">
+      <a href="login.html" class="btn-login">Iniciar sesión</a>
+    </div>
+    <h1>EVELYN BEAUTY LOUNGE</h1>
+    <p>¡Reserva tu cita con nosotros!</p>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="citas.html">Citas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenedor de Citas -->
+  <div class="container-citas">
+    <!-- Campo de Trabajo a realizar -->
+    <div class="cita-opcion">
+      <h3>Trabajo a realizar</h3>
+      <select id="trabajo">
+        <option value="">Selecciona...</option>
+        <option value="Corte de Cabello">Corte de Cabello</option>
+        <option value="Manicure y Pedicure">Manicure y Pedicure</option>
+        <option value="Facial">Facial</option>
+      </select>
+    </div>
+
+    <!-- Campo de Fecha -->
+    <div class="cita-opcion">
+      <h3>Fecha</h3>
+      <input type="date" id="fecha">
+    </div>
+
+    <!-- Campo de Hora -->
+    <div class="cita-opcion">
+      <h3>Hora</h3>
+      <select id="hora">
+        <option value="">Selecciona...</option>
+        <option value="10:00">10:00 AM</option>
+        <option value="11:00">11:00 AM</option>
+        <option value="12:00">12:00 PM</option>
+      </select>
+    </div>
+
+    <!-- Campo de Método de Pago -->
+    <div class="cita-opcion">
+      <h3>Método de Pago</h3>
+      <select id="metodoPago" onchange="mostrarBotonPago()">
+        <option value="">Selecciona...</option>
+        <option value="Tarjeta">Tarjeta</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Efectivo">Efectivo</option>
+      </select>
+      <button type="button" id="btnMetodoPago" class="btn-metodo-pago" style="display: none;" onclick="añadirMetodoPago()">Añadir Método de Pago</button>
+    </div>
+  </div>
+
+  <!-- Resumen de la cita -->
+  <div class="cita-resumen" style="display: none;">
+    <h3>Resumen de la Cita</h3>
+    <p id="resumenCita">Aquí aparecerá el resumen de tu cita</p>
+    <button class="btn-confirmar" type="button" onclick="confirmarCita()">Confirmar</button>
+  </div>
+</body>
+</html>

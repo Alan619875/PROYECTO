@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estética Unisex</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <!-- Parte superior con botón de inicio de sesión o perfil del usuario -->
+    <div class="header-top">
+      <a href="login.html" class="btn-login">Iniciar sesión</a>
+    </div>
+    <!-- Título y subtítulo centrados -->
+    <h1>EVELYN BEAUTY LOUNGE</h1>
+    <p>CUIDAMOS DE TI, CUIDAMOS DE TU BELLEZA</p>
+    <!-- Menú de Navegación centrado debajo del título -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="citas.html">Citas</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="menu-desplegable" id="menuOpciones">
+    <label for="inputFoto" class="opcion">Añadir foto</label>
+    <input type="file" id="inputFoto" accept="image/*" style="display: none;">
+    <a href="#" id="cerrar-sesion">Cerrar sesión</a>
+  </div>  
+  <!-- Contenedor principal -->
+  <div class="container">
+    <!-- Sección de bienvenida -->
+    <section class="bienvenida" id="inicio">
+      <h2>BIENVENIDOS A EVELYN BEAUTY LOUNGE</h2>
+      <p>OFRECEMOS SERVICIOS DE ESTÉTICA PARA TODOS. <br>
+        NUESTRA MISIÓN ES BRINDARTE UNA EXPERIENCIA DE CUIDADO Y RELAJACIÓN DE LA MÁS ALTA CALIDAD.</p>
+    </section>
+    <!-- Sección de servicios -->
+    <section class="servicios" id="servicios">
+      <div class="servicio">
+        <img src="img/logo1.jpg" alt="Corte de Cabello">
+        <h3>Corte de Cabello</h3>
+        <p>Adaptamos el corte perfecto para ti, resaltando tu estilo único.</p>
+      </div>
+      <div class="servicio">
+        <img src="img/mani.jpg" alt="Manicure y Pedicure">
+        <h3>Manicure y Pedicure</h3>
+        <p>Cuidado completo para tus manos y pies, con productos de alta calidad.</p>
+      </div>
+      <div class="servicio">
+        <img src="img/facial.jpg" alt="Faciales">
+        <h3>Faciales</h3>
+        <p>Tratamientos faciales personalizados que cuidan tu piel.</p>
+      </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section class="contacto" id="citas">
+      <h2>Contáctanos</h2>
+      <p>¡Reserva tu cita hoy!</p>
+      <a href="tel:+123456789">Llámanos</a>
+    </section>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

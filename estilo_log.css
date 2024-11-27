@@ -1,0 +1,145 @@
+/* Gradiente y estilo del fondo */
+body {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+/* Contenedor general */
+.wrapper {
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  padding: 2rem;
+}
+
+/* Logo circular */
+.logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border: 3px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logo span {
+  font-size: 0.9rem;
+}
+
+/* Títulos y subtítulos */
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Formularios generales */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  transition: border-color 0.3s ease;
+}
+
+form input::placeholder {
+  color: white;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #ff8a00;
+}
+
+/* Botones generales */
+button {
+  padding: 0.8rem;
+  background: white;
+  color: #e52e71;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background-color: #ff8a00;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Enlaces generales */
+.links {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos específicos para el Login */
+.login-wrapper {
+  color: white;
+}
+
+.login-form input {
+  border: 2px solid white;
+}
+
+/* Botón de Login */
+.login-btn {
+  background: white;
+  color: #e52e71;
+}
+
+/* Estilos específicos para el Registro */
+.register-wrapper {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.register-form input {
+  border: 2px solid white;
+}
+
+.register-btn {
+  background: white;
+  color: #e52e71;
+}
