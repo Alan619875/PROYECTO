@@ -5,13 +5,11 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-
 body {
   color: #333;
   background-color: #f4f4f4;
   line-height: 1.6;
 }
-
 /* Fondo degradado para el encabezado */
 header {
   background: linear-gradient(90deg, #ff8a00, #e52e71);
@@ -21,20 +19,17 @@ header {
   position: relative;
   border-bottom: 5px solid #e52e71;
 }
-
 /* Estilo del título en el encabezado */
 header h1 {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-
 header p {
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
 }
-
 /* Botón de inicio de sesión o perfil */
 .header-top {
   display: flex;
@@ -44,7 +39,6 @@ header p {
   top: 0;
   right: 0;
 }
-
 .btn-login {
   color: #fff;
   background-color: #E5306F;
@@ -54,17 +48,14 @@ header p {
   border-radius: 5px;
   transition: background 0.3s ease;
 }
-
 .btn-login:hover {
   background-color: #d06e00;
 }
-
 /* Barra de navegación */
 .navbar {
   text-align: center;
   margin-top: 1rem;
 }
-
 .navbar ul {
   list-style-type: none;
   display: inline-flex;
@@ -72,7 +63,6 @@ header p {
   padding: 0;
   margin: 0;
 }
-
 .navbar ul li a {
   color: #fff;
   text-decoration: none;
@@ -80,13 +70,11 @@ header p {
   padding: 0.5rem 1rem;
   transition: color 0.3s ease, background 0.3s ease;
 }
-
 .navbar ul li a:hover {
   color: #ff8a00;
   background: #fff;
   border-radius: 5px;
 }
-
 /* Imagen de perfil */
 .foto-perfil {
   width: 40px;
@@ -97,14 +85,12 @@ header p {
   cursor: pointer;
   border: 2px solid #fff;
 }
-
 /* Contenedor del menú del perfil */
 .perfil-menu {
   display: flex;
   align-items: center;
   position: relative;
 }
-
 /* Menú desplegable del perfil */
 .menu-desplegable {
   display: none;
@@ -119,11 +105,9 @@ header p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
-
 .menu-desplegable.mostrar {
   display: block;
 }
-
 .menu-desplegable a {
   display: block;
   padding: 8px 12px;
@@ -132,11 +116,9 @@ header p {
   font-weight: bold;
   transition: background 0.3s ease;
 }
-
 .menu-desplegable a:hover {
   background-color: #f4f4f4;
 }
-
 /* Sección de bienvenida */
 .bienvenida {
   text-align: center;
@@ -146,14 +128,12 @@ header p {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 .bienvenida h2 {
   color: #e52e71;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
-
 .bienvenida p {
   font-size: 1.2rem;
   color: #666;
@@ -161,7 +141,6 @@ header p {
   margin: 0 auto;
   line-height: 1.6;
 }
-
 /* Sección de servicios */
 .servicios {
   display: flex;
@@ -170,7 +149,6 @@ header p {
   gap: 2rem;
   margin-top: 2rem;
 }
-
 .servicio {
   background: #fff;
   border-radius: 10px;
@@ -180,11 +158,9 @@ header p {
   width: calc(33.333% - 2rem);
   transition: transform 0.3s ease;
 }
-
 .servicio:hover {
   transform: translateY(-5px);
 }
-
 .servicio img {
   width: 100%;
   height: 200px;
@@ -192,18 +168,15 @@ header p {
   border-radius: 8px;
   margin-bottom: 1rem;
 }
-
 .servicio h3 {
   color: #ff8a00;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
-
 .servicio p {
   color: #666;
   font-size: 1rem;
 }
-
 /* Sección de citas */
 .container-citas {
   display: flex;
@@ -215,7 +188,6 @@ header p {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 .cita-opcion {
   width: 200px;
   background: #fff;
@@ -224,7 +196,6 @@ header p {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-
 .cita-opcion h3 {
   color: #e52e71;
   margin-bottom: 0.5rem;
@@ -241,7 +212,6 @@ header p {
   margin-top: 10px;
   transition: background-color 0.3s ease;
 }
-
 .btn-metodo-pago:hover {
   background-color: #c0255d;
 }
@@ -253,7 +223,6 @@ header p {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-
 .btn-aceptar {
   background-color: #ff8a00;
   color: #fff;
@@ -264,11 +233,9 @@ header p {
   font-weight: bold;
   transition: background 0.3s ease;
 }
-
 .btn-aceptar:hover {
   background-color: #d06e00;
 }
-
 /* Responsividad */
 @media (max-width: 768px) {
   .servicio {
@@ -279,7 +246,6 @@ header p {
     flex-direction: column;
     align-items: center;
   }
-
   .cita-opcion {
     width: 90%;
   }
@@ -295,34 +261,242 @@ header p {
   text-align: center; /* Texto centrado */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para darle elevación */
 }
-
 .cita-resumen h3 {
   font-size: 1.8rem; /* Tamaño del título */
   margin-bottom: 1rem; /* Espaciado inferior */
   font-weight: bold;
 }
-
 .cita-resumen p {
   font-size: 1.2rem; /* Tamaño del texto */
   line-height: 1.6; /* Altura de línea */
   margin-bottom: 1.5rem; /* Espaciado inferior */
 }
-
 /* Estilo para el botón de confirmar */
-.cita-resumen .btn-confirmar {
-  background-color: #fff; /* Fondo blanco */
-  color: #e52e71; /* Texto en rosa */
-  padding: 0.8rem 1.5rem; /* Espaciado interno */
-  font-size: 1rem; /* Tamaño de fuente */
-  font-weight: bold; /* Negrita */
-  border: 2px solid #e52e71; /* Borde rosa */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cursor de puntero */
-  transition: background 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+button {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+/* Botón "Generar Cita" */
+#btnGenerarCita {
+  background-color: #e52e71; /* Rosa */
+  color: white;
+  font-weight: bold;
 }
 
-.cita-resumen .btn-confirmar:hover {
-  background-color: #e52e71; /* Fondo rosa en hover */
-  color: #fff; /* Texto en blanco en hover */
+#btnGenerarCita:hover {
+  background-color: #e85d54; /* Un rosa más oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón "Confirmar" */
+#btnConfirmarCita {
+  background-color: #28a745; /* Verde */
+  color: white;
+  font-weight: bold;
+}
+
+#btnConfirmarCita:hover {
+  background-color: #218838; /* Verde más oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón "Cancelar" */
+#btnCancelarModal,
+#btnCancelar {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+  font-weight: bold;
+}
+
+#btnCancelarModal:hover,
+#btnCancelar:hover {
+  background-color: #c82333; /* Rojo más oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.mensaje-confirmacion {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+/*añadir tarjeta*/
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-contenido {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+.modal-contenido h2 {
+  margin-bottom: 1rem;
+  color: #e52e71;
+}
+.campo {
+  margin-bottom: 1rem;
+}
+.campo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.campo input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.campo input:focus {
+  border-color: #e52e71;
+  outline: none;
+}
+.btn-guardar,
+.btn-cancelar {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-guardar {
+  background: #e52e71;
+  color: #fff;
+}
+.btn-guardar:hover {
+  background: #c0255d;
+}
+.btn-cancelar {
+  background: #ccc;
+}
+.btn-cancelar:hover {
+  background: #999;
+}
+/* Botón para Añadir PayPal (igual que Tarjeta) */
+.btn-metodo-pago {
+  background-color: #e52e71;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+.btn-metodo-pago:hover {
+  background-color: #c0255d;
+}
+/* Modal de PayPal (similar al de Tarjeta) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.modal-contenido {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  margin: 5rem auto;
+  text-align: center;
+}
+.modal-contenido h2 {
+  color: #e52e71;
+  margin-bottom: 1rem;
+}
+.modal-contenido .campo {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.modal-contenido .campo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.modal-contenido .campo input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.modal-contenido .btn-guardar {
+  background-color: #e52e71;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-contenido .btn-guardar:hover {
+  background-color: #c0255d;
+}
+.modal-contenido .btn-cancelar {
+  background-color: #ccc;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-contenido .btn-cancelar:hover {
+  background-color: #aaa;
+}
+/* estilos de administrador, este es de las citas y su tabla*/
+.tabla-estilizada {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.tabla-estilizada th, .tabla-estilizada td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.tabla-estilizada th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+.mensaje-restriccion {
+  color: #ff0000;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
 }
 

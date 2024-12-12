@@ -1,37 +1,73 @@
 <?php
-// Incluir conexión a la base de datos
-require_once 'conexion.php';
+// Configuración de conexión a la base de datos
+$host = '127.0.0.1'; // Cambia si el host es diferente
+$dbname = 'evelynbeautylounge'; // Nombre de tu base de datos
+$username = 'root'; // Usuario
+$password = ''; // Contraseña
 
-// Configuración de encabezado para devolver JSON
-header('Content-Type: application/json');
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    http_response_code(500);
+    die(json_encode(['error' => 'Error de conexión a la base de datos: ' . $e->getMessage()]));
+}
 
-// Validar solicitud POST
+// Verificar si se trata de una solicitud POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $input = json_decode(file_get_contents('php://input'), true);
+    $trabajo = $_POST['trabajo'] ?? null;
+    $fecha = $_POST['fecha'] ?? null;
+    $hora = $_POST['hora'] ?? null;
+    $metodo_pago = $_POST['metodo_pago'] ?? null;
+    $total = $_POST['total'] ?? null;
 
-    $fecha = $input['fecha'] ?? null;
-    $hora = $input['hora'] ?? null;
-    $metodo_pago = $input['metodo_pago'] ?? null;
-    $nombre = $input['nombre'] ?? null;
-    $telefono = $input['telefono'] ?? null;
+    // Validar que todos los campos están presentes
+    if (!$trabajo || !$fecha || !$hora || !$metodo_pago || !$total) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Todos los campos son obligatorios.']);
+        exit;
+    }
 
-    if (!$fecha || !$hora || !$metodo_pago || !$nombre || !$telefono) {
-        echo json_encode(["error" => "Faltan datos obligatorios para guardar la cita."]);
+    // Validación adicional: formato de fecha y hora
+    $fechaValida = preg_match('/^\d{4}-\d{2}-\d{2}$/', $fecha);
+    $horaValida = preg_match('/^\d{2}:\d{2}$/', $hora);
+
+    if (!$fechaValida || !$horaValida) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Formato de fecha u hora inválido.']);
+        exit;
+    }
+
+    // Validar que el total sea numérico
+    if (!is_numeric($total) || $total <= 0) {
+        http_response_code(400);
+        echo json_encode(['error' => 'El total debe ser un valor numérico positivo.']);
         exit;
     }
 
     try {
-        // Inserta una nueva cita en la tabla citas
-        $stmt = $pdo->prepare(
-            "INSERT INTO citas (fecha, hora, metodo_pago, nombre, telefono) 
-             VALUES (?, ?, ?, ?, ?)"
-        );
-        $stmt->execute([$fecha, $hora, $metodo_pago, $nombre, $telefono]);
+        // Preparar consulta para insertar datos
+        $query = "INSERT INTO citas_user (trabajo, fecha, hora, metodo_pago, total, created_at) 
+                  VALUES (:trabajo, :fecha, :hora, :metodo_pago, :total, NOW())";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([
+            ':trabajo' => $trabajo,
+            ':fecha' => $fecha,
+            ':hora' => $hora,
+            ':metodo_pago' => $metodo_pago,
+            ':total' => $total,
+        ]);
 
-        echo json_encode(["success" => "Cita guardada exitosamente."]);
-    } catch (Exception $e) {
-        echo json_encode(["error" => "Error al guardar la cita: " . $e->getMessage()]);
+        // Respuesta exitosa
+        http_response_code(201);
+        echo json_encode(['success' => true, 'message' => 'Cita guardada correctamente.']);
+    } catch (PDOException $e) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Error al guardar la cita: ' . $e->getMessage()]);
     }
 } else {
-    echo json_encode(["error" => "Método no permitido."]);
+    // Método no permitido
+    http_response_code(405);
+    echo json_encode(['error' => 'Método no permitido.']);
 }
+?>

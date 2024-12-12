@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estética Unisex</title>
   <link rel="stylesheet" href="estilos.css">
+  <script src="admin.js"></script>
 </head>
 <body>
   <!-- Encabezado -->
   <header>
     <!-- Parte superior con botón de inicio de sesión o perfil del usuario -->
     <div class="header-top">
-      <a href="login.html" class="btn-login">Iniciar sesión</a>
-    </div>
+      <!-- Aquí solo debería ir el contenedor para el perfil o el botón de "Iniciar sesión" -->
+      <div id="perfilContainer"></div>
+    </div>   
+    <!--mostrar mensaje de rol-->
+    <div id="mensajeBienvenida" class="mensaje-bienvenida"></div>
     <!-- Título y subtítulo centrados -->
     <h1>EVELYN BEAUTY LOUNGE</h1>
     <p>CUIDAMOS DE TI, CUIDAMOS DE TU BELLEZA</p>
@@ -64,7 +68,6 @@
       <a href="tel:+123456789">Llámanos</a>
     </section>
   </div>
-
   <script src="scripts.js"></script>
 </body>
 </html>

@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Cifrar la contraseña
         $hashedPassword = password_hash($contrasena, PASSWORD_DEFAULT);
 
-        // Insertar el usuario en la base de datos
-        $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, correo, telefono, contrasena) VALUES (?, ?, ?, ?)");
+        // Insertar el usuario como cliente
+        $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, correo, telefono, contrasena, rol) VALUES (?, ?, ?, ?, 'cliente')");
         $stmt->execute([$nombre, $correo, $telefono, $hashedPassword]);
 
         echo json_encode(['success' => true, 'message' => 'Cuenta creada exitosamente.']);

@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reservar Cita - Evelyn Beauty Lounge</title>
-  <link rel="stylesheet" href="estilos.css">
   <script defer src="scripts.js"></script>
+  <script src="admin.js"></script>
+  <script src="restricciones.js"></script>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <!-- Encabezado -->
   <header>
     <div class="header-top">
-      <a href="login.html" class="btn-login">Iniciar sesión</a>
+      <div id="perfilContainer"></div>
     </div>
     <h1>EVELYN BEAUTY LOUNGE</h1>
     <p>¡Reserva tu cita con nosotros!</p>
@@ -23,7 +25,6 @@
       </ul>
     </nav>
   </header>
-
   <!-- Contenedor de Citas -->
   <div class="container-citas">
     <!-- Campo de Trabajo a realizar -->
@@ -36,14 +37,10 @@
         <option value="Facial">Facial</option>
       </select>
     </div>
-
-    <!-- Campo de Fecha -->
     <div class="cita-opcion">
       <h3>Fecha</h3>
       <input type="date" id="fecha">
     </div>
-
-    <!-- Campo de Hora -->
     <div class="cita-opcion">
       <h3>Hora</h3>
       <select id="hora">
@@ -53,8 +50,6 @@
         <option value="12:00">12:00 PM</option>
       </select>
     </div>
-
-    <!-- Campo de Método de Pago -->
     <div class="cita-opcion">
       <h3>Método de Pago</h3>
       <select id="metodoPago" onchange="mostrarBotonPago()">
@@ -63,15 +58,96 @@
         <option value="PayPal">PayPal</option>
         <option value="Efectivo">Efectivo</option>
       </select>
-      <button type="button" id="btnMetodoPago" class="btn-metodo-pago" style="display: none;" onclick="añadirMetodoPago()">Añadir Método de Pago</button>
+      <button type="button" id="btnMetodoTarjeta" class="btn-metodo-pago" style="display: none;" onclick="abrirModalTarjeta()">Añadir Tarjeta</button>
+      <button type="button" id="btnMetodoPayPal" class="btn-metodo-pago" style="display: none;" onclick="abrirModalPayPal()">Añadir PayPal</button>
     </div>
+  </div>  
   </div>
-
   <!-- Resumen de la cita -->
   <div class="cita-resumen" style="display: none;">
     <h3>Resumen de la Cita</h3>
     <p id="resumenCita">Aquí aparecerá el resumen de tu cita</p>
-    <button class="btn-confirmar" type="button" onclick="confirmarCita()">Confirmar</button>
   </div>
+  <!-- Modal para Añadir Tarjeta -->
+  <div id="modalTarjeta" class="modal" style="display: none;">
+    <div class="modal-contenido">
+      <h2>Añadir Tarjeta</h2>
+      <form id="formTarjeta">
+        <div class="campo">
+          <label for="nombreTitular">Nombre del Titular</label>
+          <input type="text" id="nombreTitular" placeholder="Ejemplo: Juan Pérez" required>
+        </div>
+        <div class="campo">
+          <label for="numeroTarjeta">Número de Tarjeta</label>
+          <input type="text" id="numeroTarjeta" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" required>
+        </div>
+        <div class="campo">
+          <label for="fechaVencimiento">Fecha de Vencimiento</label>
+          <input type="month" id="fechaVencimiento" required>
+        </div>
+        <div class="campo">
+          <label for="cvv">Código CVV</label>
+          <input type="password" id="cvv" placeholder="XXX" maxlength="3" required>
+        </div>
+        <button type="submit" class="btn-guardar">Guardar Tarjeta</button>
+        <button type="button" class="btn-cancelar" onclick="cerrarModalTarjeta()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  <!-- Modal para Añadir PayPal -->
+  <div id="modalPayPal" class="modal" style="display: none;">
+    <div class="modal-contenido">
+      <h2>Añadir PayPal</h2>
+      <form id="formPayPal">
+        <div class="campo">
+          <label for="emailPayPal">Correo Electrónico de PayPal</label>
+          <input type="email" id="emailPayPal" placeholder="ejemplo@correo.com" required>
+        </div>
+        <button type="submit" class="btn-guardar">Guardar PayPal</button>
+        <button type="button" class="btn-cancelar" onclick="cerrarModalPayPal()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  <div class="container-citas">
+    <!-- Otros campos de formulario existentes aquí -->
+    <button id="btnGenerarCita" class="btn-generar">Generar Cita</button>
+</div>
+  <!-- Modal de confirmación -->
+<div id="modalConfirmacion" class="modal" style="display: none;">
+  <div class="modal-contenido">
+    <h2>Confirmación de la Cita</h2>
+    <p><strong>Trabajo a realizar:</strong> <span id="modalTrabajo"></span></p>
+    <p><strong>Fecha:</strong> <span id="modalFecha"></span></p>
+    <p><strong>Hora:</strong> <span id="modalHora"></span></p>
+    <p><strong>Método de Pago:</strong> <span id="modalMetodoPago"></span></p>
+    <p><strong>Total:</strong> <span id="modalTotal"></span></p>
+    <div class="botones-modal">
+      <button id="btnConfirmarCita" class="btn-confirmar">Confirmar</button>
+      <button id="btnCancelarModal" class="btn-cancelar">Cancelar</button>
+    </div>
+  </div>
+</div>
+<!-- Tabla de citas -->
+<div class="container-citas">
+  <h3>Lista de Citas</h3>
+  <p id="sinCitas" style="display: none;">No hay citas programadas.</p>
+  <table id="tablaCitas" class="tabla-estilizada">
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Trabajo</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Método de Pago</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se insertarán dinámicamente las citas -->
+    </tbody>
+  </table>
+</div>
+</div>
 </body>
 </html>
